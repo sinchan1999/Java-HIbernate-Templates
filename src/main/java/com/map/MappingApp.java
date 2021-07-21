@@ -1,5 +1,8 @@
 package com.map;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory; 
@@ -14,7 +17,7 @@ public class MappingApp {
        cfg.configure("hibernate.cfg.xml");
        SessionFactory factory = cfg.buildSessionFactory();
        
-       // Creating Question objects
+      /* // Creating Question objects
        Question q1=new Question();
        q1.setQuestionId(1204);
        q1.setQuestion("What is your Name ?");
@@ -62,8 +65,60 @@ public class MappingApp {
        System.out.println(newQues.getQuestion());
        System.out.println(newQues.getAnswer().getAnswer());
        sess.close();   
-       factory.close();
-
+       factory.close(); */
+       
+       
+       
+    // Creating Question objects
+       Question q1=new Question();
+       q1.setQuestionId(1207);
+       q1.setQuestion("What are the programing languages that you know ?");
+       
+       
+    // Creating 3 different Answer objects
+       Answer answer=new Answer();
+       answer.setAnswerId(770077);
+       answer.setAnswer("1: Java");
+       answer.setQuestion(q1);
+       
+       
+       
+       Answer answer1=new Answer();
+       answer1.setAnswerId(770055);
+       answer1.setAnswer("2: C++");
+       answer1.setQuestion(q1);
+       
+       
+       Answer answer2=new Answer();
+       answer2.setAnswerId(770099);
+       answer2.setAnswer("3: Python");
+       answer2.setQuestion(q1);
+       
+    // Adding differrent answers in Answer List   
+       List<Answer> list=new ArrayList<Answer>();
+       list.add(answer);
+       list.add(answer1);
+       list.add(answer2);
+       
+    // Setting many answers to question q1. 
+       q1.setAnswers(list);
+       
+    // Session
+       Session sess = factory.openSession();
+       Transaction tx=sess.beginTransaction();
+       
+     // Saving
+       sess.save(q1);
+       sess.save(answer);
+       sess.save(answer1);
+       sess.save(answer2);
+       
+       tx.commit();
+       
+       sess.close();   
+       factory.close();          
+       
+       
   }
 	
 }
