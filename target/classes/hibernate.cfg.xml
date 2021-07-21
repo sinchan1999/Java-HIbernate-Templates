@@ -15,5 +15,7 @@
 		<mapping class="com.sinchan.Hibernate.Address" />
 		<mapping class="com.map.Question" />
 		<mapping class="com.map.Answer" />
+		<mapping class="manyTomanyMapping.Project" />
+		<mapping class="manyTomanyMapping.Emp" />
 	</session-factory>
 </hibernate-configuration>
