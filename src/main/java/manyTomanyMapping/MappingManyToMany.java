@@ -70,11 +70,12 @@ public static void main(String[] args) {
     s.save(p2);
     s.save(p3);
     
-    System.out.println("\nTables created successfully....!!!");
-    
+        
     tx.commit(); 
     s.close();
     factory.close();
+    
+    System.out.println("\nTables created successfully....!!!");
 	    
    }   
 

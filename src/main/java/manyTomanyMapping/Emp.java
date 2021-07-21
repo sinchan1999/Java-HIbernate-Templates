@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -13,7 +15,14 @@ public class Emp
 	private int empId;
 	private String name;
 	
-	@ManyToMany
+	@ManyToMany	
+	
+	/*  To Rename the Join Table
+	 * 
+	@JoinTable(name="empsProject",
+	joinColumns= {@JoinColumn(name="EmpId")},
+	inverseJoinColumns= {@JoinColumn(name="ProjId") })   */
+	
 	private List<Project> projects;
 
 	public int getEmpId() {

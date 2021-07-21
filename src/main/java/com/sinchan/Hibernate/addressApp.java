@@ -26,6 +26,7 @@ public class addressApp
        
        // Creating object of address Class
        Address ad = new Address();
+       ad.setAddressId(1199);
        ad.setStreet("NH127-B");
        ad.setCity("Coorg");
        ad.setOpen(true);
@@ -46,7 +47,7 @@ public class addressApp
        tx.commit();       
        session.close(); 
        
-       System.out.println("Processing Done......!!!");
+       System.out.println("\nTables created successfully....!!!");
     	
     	
     }
