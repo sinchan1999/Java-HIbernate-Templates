@@ -12,6 +12,9 @@ public class Alien //POJO
 	private String alienName;
 	private String alienColor;
 	
+	//This an embedded class
+	private Certificate certi;
+	
 	
 	public int getAlienId() {
 		return alienId;
@@ -31,6 +34,17 @@ public class Alien //POJO
 	public void setAlienColor(String alienColor) {
 		this.alienColor = alienColor;
 	}
+	
+	// Getter and Setter for Certificates
+	public Certificate getCerti() {
+		return certi;
+	}
+	public void setCerti(Certificate certi) {
+		this.certi = certi;
+	}
+	
+	
+	
 	
 
 }
