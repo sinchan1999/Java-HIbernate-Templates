@@ -1,17 +1,18 @@
 package com.map;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Answer {
 	
-	@Id
-	
+	@Id	
 	private int answerId;
 	private String answer;
+	
+	@OneToOne(mappedBy="answer") // It means question will take care of the Bi-directional mapping and will display once in question table
+	private Question question;
 	
 	// Getters and Setters
 	public int getAnswerId() {
@@ -26,6 +27,15 @@ public class Answer {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+	
+	
+	public Question getQuestion() {
+		return question;
+	}
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	
 	
 	// Constructor using fields
 	public Answer(int answerId, String answer) {

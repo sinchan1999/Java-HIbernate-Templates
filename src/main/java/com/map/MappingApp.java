@@ -1,6 +1,5 @@
 package com.map;
 
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory; 
@@ -9,8 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class MappingApp {
 	
 	public static void main( String[] args )
-    {
-      
+    {     
     
        Configuration cfg= new Configuration();
        cfg.configure("hibernate.cfg.xml");
@@ -24,11 +22,13 @@ public class MappingApp {
        //Creating Answer objects
        Answer answer=new Answer();
        answer.setAnswerId(2277);
-       answer.setAnswer("SINCHAN PANDA");      
+       answer.setAnswer("SINCHAN PANDA");
+       
+     //  answer.setQuestion(q1);  // Setting Question for respective ans. to make it Bi-directional
+       q1.setAnswer(answer);        
        
        
-       
-    // Creating Question objects
+       //Creating Question objects
        Question q2=new Question();
        q2.setQuestionId(1211);
        q2.setQuestion("What is RollNo. ?");
@@ -38,11 +38,8 @@ public class MappingApp {
        answer1.setAnswerId(2299);
        answer1.setAnswer("17005544");
        
-       
-       
-       q1.setAnswer(answer);    
-       q2.setAnswer(answer1);
-       
+      // answer1.setQuestion(q2);  // Setting Question for respective ans. to make it Bi-directional
+       q2.setAnswer(answer1);        
          
        
        // Session
@@ -53,11 +50,17 @@ public class MappingApp {
        sess.save(q1);
        sess.save(q2);
        sess.save(answer);
-       sess.save(answer1);
-       
+       sess.save(answer1);      
        
        
        tx.commit();
+       
+       // Fetching Data
+       System.out.println("Please wait Fetching yout data.......");
+       
+       Question newQues=(Question)sess.get(Question.class, 1204);
+       System.out.println(newQues.getQuestion());
+       System.out.println(newQues.getAnswer().getAnswer());
        sess.close();   
        factory.close();
 

@@ -3,6 +3,7 @@ package com.map;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,6 +15,7 @@ public class Question {
 	private String question;
 	
 	@OneToOne
+	@JoinColumn(name="answer_id") // Renaming the join column (Foreign key) in Question Table
 	private Answer answer;
 
 	// Getters and Setters
