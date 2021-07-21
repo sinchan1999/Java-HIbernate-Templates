@@ -17,6 +17,8 @@ public class MappingApp {
        cfg.configure("hibernate.cfg.xml");
        SessionFactory factory = cfg.buildSessionFactory();
        
+    // ------>>>>OnetoOne>>>>-------
+       
       /* // Creating Question objects
        Question q1=new Question();
        q1.setQuestionId(1204);
@@ -69,6 +71,8 @@ public class MappingApp {
        
        
        
+     //-------------->>>>>OneToMany<<<<<<<----------------	
+       
     // Creating Question objects
        Question q1=new Question();
        q1.setQuestionId(1207);
@@ -113,8 +117,9 @@ public class MappingApp {
        sess.save(answer1);
        sess.save(answer2);
        
-       tx.commit();
+       tx.commit(); 
        
+            
        sess.close();   
        factory.close();          
        
