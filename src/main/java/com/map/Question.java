@@ -4,6 +4,7 @@ package com.map;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -66,6 +67,8 @@ public class Question {
 	
 	
 	//-------------->>>>>OneToMany<<<<<<<----------------	
+	
+	// @OneToMany(mappedBy="question",fetch= FetchType.EAGER) --->If you want EAGER fetching, By default it is LAZY.
 	
     @OneToMany(mappedBy="question")
 	private List<Answer> answers;
