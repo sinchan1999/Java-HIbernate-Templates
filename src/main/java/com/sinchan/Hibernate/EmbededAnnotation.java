@@ -14,12 +14,12 @@ public class EmbededAnnotation {
 	     
 	     Alien alien1=new Alien();
 	     
-	     alien1.setAlienId(77099);
-	     alien1.setAlienName("ZetaaMark-X");
-	     alien1.setAlienColor("Photonic");
+	     alien1.setAlienId(770044);
+	     alien1.setAlienName("Kaapaa-II");
+	     alien1.setAlienColor("Grey");
 	     
 	     Certificate certificate=new Certificate();
-	     certificate.setCourse("Earth Survival Series");
+	     certificate.setCourse("Moon-Research");
 	     certificate.setDuration("3 months");
 	     
 	     alien1.setCerti(certificate);
