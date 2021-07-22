@@ -21,11 +21,12 @@ public class HqlExample1 {
 	    Session s =factory.openSession();
 	    
 	    //HQL
-	    // String query="FROM Alien WHERE duration='3 months' " ;
-	    String query="FROM Alien WHERE duration=:x " ;
+	     String query="FROM Alien WHERE duration='6 months' AND alienName='ZetaaMark-V' " ;
+	    //String query="FROM Alien AS a WHERE a.duration=:x AND a.alienName=:n" ;
 	    Query q=s.createQuery(query);
 	    
-	    q.setParameter("x", "8 months"); // Passing Dyanmic value 
+	   // q.setParameter("x", "6 months");
+	    //q.setParameter("n", "ZetaaMark-V"); // Passing Dyanmic value 
 	    
 	    List<Alien> list=q.getResultList();
 	    
