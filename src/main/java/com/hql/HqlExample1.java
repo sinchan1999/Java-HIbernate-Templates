@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.sinchan.Hibernate.Alien;
@@ -36,6 +37,19 @@ public class HqlExample1 {
 	    	System.out.println(alien.getAlienName()+"  : "+alien.getAlienId());	    	
 	    }
 	    
+	    Transaction tx=s.beginTransaction();
+	    
+	    //---------->>>DELETE>>>--------
+	    
+//	    Query q2=s.createQuery("DELETE FROM Alien WHERE alienId='3007'");
+//	    int update=q2.executeUpdate();
+//	    System.out.println("\nDeleted successfully........ !");
+//	    System.out.println("Updated : "+update);
+	    
+	    
+	    
+	    
+	    tx.commit();		
 	    s.close();
 	    factory.close();
 
