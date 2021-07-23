@@ -1,5 +1,6 @@
 package com.hql;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -47,8 +48,8 @@ public class HqlExample1 {
 //	    System.out.println("Updated : "+update);
 	    
 	    
-	    //---------->>>UPDATE>>>--------
-	    
+	    //---------->>>UPDATE>>>--------	        
+	   /* 
 //	     Query q2=s.createQuery("UPDATE Alien SET alienColor='Green' WHERE alienId='77055' ");
 	    
 	    Query q2=s.createQuery("UPDATE Alien SET alienColor=:color WHERE alienId=:Id");
@@ -64,7 +65,20 @@ public class HqlExample1 {
 	    else {
 	    	 System.out.println("Failed to Update...!");
 	    }
+	    */
 	    
+	    
+	  //---------->>>How to JOIN Tables>>>--------[Here I am using Question & Answer tables].
+	    
+	    Query q3=s.createQuery("SELECT q.question,q.questionId,a.answer FROM Question AS q INNER JOIN q.answers AS a");
+	    List<Object []> list3=q3.getResultList();
+	    
+	    System.out.println("\nYour JOIN tables is represented as array below:............!");
+	    
+	    for(Object[] arr:list3)
+	    {
+	    	System.out.println(Arrays.toString(arr));
+	    }
 	    
 	    tx.commit();		
 	    s.close();
