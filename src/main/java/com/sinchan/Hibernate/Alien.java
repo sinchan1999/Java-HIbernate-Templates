@@ -1,10 +1,18 @@
 package com.sinchan.Hibernate;
 
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
 import javax.persistence.*;
 
+// For Second Level cache
+import org.hibernate.annotations.Cache;  
+import org.hibernate.annotations.CacheConcurrencyStrategy;  
+
 @Entity
+//For Second Level cache
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)  
 public class Alien //POJO
 {
 	@Id
