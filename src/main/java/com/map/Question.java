@@ -3,6 +3,7 @@ package com.map;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -70,7 +71,7 @@ public class Question {
 	
 	// @OneToMany(mappedBy="question",fetch= FetchType.EAGER) --->If you want EAGER fetching, By default it is LAZY.
 	
-    @OneToMany(mappedBy="question")
+    @OneToMany(mappedBy="question", cascade=CascadeType.ALL)
 	private List<Answer> answers;
 
 	// Getters and Setters
