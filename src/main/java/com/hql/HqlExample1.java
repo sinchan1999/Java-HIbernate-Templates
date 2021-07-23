@@ -47,6 +47,23 @@ public class HqlExample1 {
 //	    System.out.println("Updated : "+update);
 	    
 	    
+	    //---------->>>UPDATE>>>--------
+	    
+//	     Query q2=s.createQuery("UPDATE Alien SET alienColor='Green' WHERE alienId='77055' ");
+	    
+	    Query q2=s.createQuery("UPDATE Alien SET alienColor=:color WHERE alienId=:Id");
+	    q2.setParameter("color", "Green");
+	    q2.setParameter("Id", 77055);
+	    
+	    int update=q2.executeUpdate();
+	    
+	    if(update>0) {
+	    System.out.println("\nRows Updated successfully........ !");
+	    System.out.println("No.of rows Updated : "+update);
+	    }
+	    else {
+	    	 System.out.println("Failed to Update...!");
+	    }
 	    
 	    
 	    tx.commit();		
